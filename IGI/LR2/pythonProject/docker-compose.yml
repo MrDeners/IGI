@@ -1,0 +1,21 @@
+version: "latest"
+
+services:
+  python:
+    build: ./python
+    ports:
+      - 8001:80
+
+  db:
+    image: mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: 12345
+
+  phpmyadmin:
+    image: phpmyadmin
+    restart: always
+    ports:
+      - 8000:80
+    environment:
+      - PMA_ARBITRARY=1
