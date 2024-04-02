@@ -1,5 +1,14 @@
 def get_max_length(words):
     # This function finds the maximum length of a word in the input list of words
+    """
+    This function finds the maximum length of a word in the input list of words.
+
+    Parameters:
+    - words (List[str]): A list of words to find the maximum length from.
+
+    Returns:
+    - int: The maximum length of a word in the input list of words.
+    """
     max_length = 0
     for word in words:
         if len(word) > max_length:
@@ -9,6 +18,15 @@ def get_max_length(words):
 
 def get_amount_longest_word(words):
     # This function calculates the amount of words with the maximum length in the input list of words
+    """
+    This function calculates the amount of words with the maximum length in the input list of words.
+
+    Parameters:
+    - words (List[str]): A list of words to be processed.
+
+    Returns:
+    - int: The number of words with the maximum length in the input list of words.
+    """
     max_length = get_max_length(words)
     counter = 0
     for word in words:
@@ -19,6 +37,15 @@ def get_amount_longest_word(words):
 
 def get_words_before_sign(words):
     # This function returns a list of words that end with a comma or period from the input list of words
+    """
+    This function returns a list of words that end with a comma or period from the input list of words.
+
+    Parameters:
+    - words (List[str]): A list of words to be processed.
+
+    Returns:
+    - List[str]: A list of words that end with a comma or period.
+    """
     counter = 0
     words_before_sign = []
     for word in words:
@@ -29,6 +56,15 @@ def get_words_before_sign(words):
 
 def get_longest_word_final_e(words):
     # This function finds the longest word in the input list of words that ends with 'e'
+    """
+    This function finds the longest word in the input list of words that ends with 'e'.
+
+    Parameters:
+    - words (List[str]): A list of words to search from.
+
+    Returns:
+    - str: The longest word in the input list of words that ends with 'e', or "Not Found" if none is found.
+    """
     searching_word = ""
     for word in words:
         if word[-1] == 'e':
@@ -47,6 +83,12 @@ def get_longest_word_final_e(words):
 
 def fourth_task():
     # This function processes the input text and prints the results of the other functions
+    """
+    This function processes the input text and prints the results of the other functions.
+
+    Returns:
+    - None
+    """
     text = ("So she was considering in her own mind, as well as she could, for the hot day made her feel very sleepy "
             "and stupid, whether the pleasure of making a daisy-chain would be worth the trouble of getting up and "
             "picking the daisies, when suddenly a White Rabbit with pink eyes ran close by her.")
