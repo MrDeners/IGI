@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="f5b25d69-f7bf-4488-b128-208c19f4972e" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/LR5.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/medical_center/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/medical_center/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/medical_center/.idea/medical_center.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/medical_center/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/medical_center/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/medical_center/db.sqlite3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/medical_center/main/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/medical_center/main/admin.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/medical_center/main/apps.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/medical_center/main/forms.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/medical_center/main/migrations/0001_initial.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/medical_center/main/migrations/0002_delete_appointment.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/medical_center/main/migrations/0003_appointment.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/medical_center/main/migrations/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/medical_center/main/models.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/medical_center/main/static/main/css/main.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/medical_center/main/static/main/img/doctor-holding-clipboard-looking-at-camera_23-2148285743.avif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/medical_center/main/static/main/img/doctors_photos/default.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/medical_center/main/static/main/img/orig.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/medical_center/main/static/main/js/main.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/medical_center/main/templates/main/about_page.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/medical_center/main/templates/main/api_page.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/medical_center/main/templates/main/appointments_page.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/medical_center/main/templates/main/clients_page.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/medical_center/main/templates/main/codes_page.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/medical_center/main/templates/main/confirm.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/medical_center/main/templates/main/contacts_page.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/medical_center/main/templates/main/create_review.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/medical_center/main/templates/main/doctor_page.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/medical_center/main/templates/main/faq_page.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/medical_center/main/templates/main/layout.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/medical_center/main/templates/main/main_page.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/medical_center/main/templates/main/news_page.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/medical_center/main/templates/main/reviews_page.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/medical_center/main/templates/main/services_page.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/medical_center/main/templates/main/signin.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/medical_center/main/templates/main/signup.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/medical_center/main/templates/main/statistic_page.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/medical_center/main/templates/main/term_condition_page.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/medical_center/main/templates/main/update_appointment.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/medical_center/main/templates/main/vacancies_page.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/medical_center/main/tests.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/medical_center/main/urls.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/medical_center/main/views.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/medical_center/manage.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/medical_center/media/7-PR-instrumentov-dlya-prodvizheniya-vashego-meropriyatiya.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/medical_center/media/photos/7-PR-instrumentov-dlya-prodvizheniya-vashego-meropriyatiya.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/medical_center/media/photos/7-PR-instrumentov-dlya-prodvizheniya-vashego-meropriyatiya_IUx4Nlv.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/medical_center/media/photos/7-PR-instrumentov-dlya-prodvizheniya-vashego-meropriyatiya_RO08s1A.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/medical_center/media/photos/7-PR-instrumentov-dlya-prodvizheniya-vashego-meropriyatiya_RO08s1A_YMLGp3Q.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/medical_center/media/photos/7-PR-instrumentov-dlya-prodvizheniya-vashego-meropriyatiya_RO08s1A_YMLGp3Q_fVZQSiX.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/medical_center/media/photos/7-PR-instrumentov-dlya-prodvizheniya-vashego-meropriyatiya_Wl4FkIT.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/medical_center/media/photos/7-PR-instrumentov-dlya-prodvizheniya-vashego-meropriyatiya_Wl4FkIT_bnaslGE.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/medical_center/media/photos/7-PR-instrumentov-dlya-prodvizheniya-vashego-meropriyatiya_Wl4FkIT_bnaslGE_4A4Qrd_jDIQlCJ.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/medical_center/media/photos/7-PR-instrumentov-dlya-prodvizheniya-vashego-meropriyatiya_Wl4FkIT_bnaslGE_4A4Qrdu.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/medical_center/media/photos/7-PR-instrumentov-dlya-prodvizheniya-vashego-meropriyatiya_ukvbUoy.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/medical_center/media/photos/7-PR-instrumentov-dlya-prodvizheniya-vashego-meropriyatiya_ukvbUoy_01yhtwx.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/medical_center/media/photos/7-PR-instrumentov-dlya-prodvizheniya-vashego-meropriyatiya_ukvbUoy_FgOLVhW.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/medical_center/media/photos/IMG_8224.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/medical_center/media/photos/images.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/medical_center/media/photos/images_2m4Sj4Q.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/medical_center/media/photos/images_2m4Sj4Q_J0yz1ZR.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/medical_center/media/photos/istockphoto-1372002650-612x612.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/medical_center/media/photos/istockphoto-1372002650-612x612_0jqNYxt.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/medical_center/media/photos/istockphoto-1372002650-612x612_bL4LrIT.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/medical_center/media/photos/man.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/medical_center/media/photos/man_r8XdDMS.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/medical_center/media/photos/man_r8XdDMS_D2v4aG6.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/medical_center/media/photos/man_r8XdDMS_D2v4aG6_qpzEewe.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/medical_center/media/photos/man_r8XdDMS_D2v4aG6_qpzEewe_bqwpkU4.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/medical_center/media/photos/wooman.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/medical_center/medical_center/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/medical_center/medical_center/asgi.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/medical_center/medical_center/settings.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/medical_center/medical_center/urls.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/medical_center/medical_center/wsgi.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/medical_center/photos/2024/05/27/istockphoto-1372002650-612x612.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/medical_center/photos/2024/05/27/istockphoto-1372002650-612x612_6U0ZM25.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/medical_center/photos/2024/05/27/istockphoto-1372002650-612x612_FfFMERt.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/medical_center/photos/2024/05/27/istockphoto-1372002650-612x612_FrEJUPx.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/medical_center/photos/2024/05/27/istockphoto-1372002650-612x612_XT2GE2f.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/medical_center/photos/2024/05/27/istockphoto-1372002650-612x612_dITqZJE.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/medical_center/photos/2024/05/27/orig.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/medical_center/photos/2024/05/28/orig.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gitkeep.txt" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$/../.." value="IGI" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 0
+}</component>
+  <component name="ProjectId" id="2gxPOU6OpAMLmV93ngKoymAN0Ag" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;LR5IGI&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/macbook/BSUIR/Лабораторные/SPoI/253501_Malush_15/IGI/LR5/medical_center/main/templates/main&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/medical_center/main/templates/main" />
+      <recent name="$PROJECT_DIR$/medical_center/main" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/medical_center/media/doctors_photos" />
+      <recent name="$PROJECT_DIR$/medical_center/main/static/main/img/doctors_photos" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="f5b25d69-f7bf-4488-b128-208c19f4972e" name="Changes" comment="" />
+      <created>1716636223687</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1716636223687</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+</project>

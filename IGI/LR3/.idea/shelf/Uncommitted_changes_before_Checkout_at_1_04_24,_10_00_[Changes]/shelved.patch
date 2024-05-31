@@ -1,0 +1,15 @@
+Index: ../LR2/djangoProject/Dockerfile
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>FROM python\nWORKDIR /usr/src/app\nCOPY requirements.txt ./\nRUN pip install -r requirements.txt\n
+===================================================================
+diff --git a/../LR2/djangoProject/Dockerfile b/../LR2/djangoProject/Dockerfile
+--- a/../LR2/djangoProject/Dockerfile	
++++ b/../LR2/djangoProject/Dockerfile	
+@@ -2,3 +2,5 @@
+ WORKDIR /usr/src/app
+ COPY requirements.txt ./
+ RUN pip install -r requirements.txt
++#EXPOSE
++#CMD
+\ No newline at end of file
