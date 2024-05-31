@@ -1,0 +1,10 @@
+{% extends 'main/layout.html' %}
+
+{% block title %}About page{% endblock %}
+
+{% block body %}
+    <div>{{about.name}}</div>
+    <div>{{about.description}}</div>
+    <div>{{about.created}}</div>
+    <img src="{{ about.photo.url }}" alt="{{ about.name }}">
+{% endblock %}

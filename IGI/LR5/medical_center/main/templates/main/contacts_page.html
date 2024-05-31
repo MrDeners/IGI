@@ -1,0 +1,13 @@
+{% extends 'main/layout.html' %}
+
+{% block title %}Contacts page{% endblock %}
+
+{% block body %}
+{% for item in contacts %}
+    <div><a href="{% url 'doctor_page' item.id %}">{{ item.name }}</a></div>
+    <img src="{{ item.photo.url }}" height = "200" width = "150">
+    <div>{{ item.sphere }}</div>
+    <div>{{ item.education }}</div>
+    <div>{{ item.careerStartTime }}</div>
+{% endfor %}
+{% endblock %}

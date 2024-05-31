@@ -1,0 +1,11 @@
+{% extends 'main/layout.html' %}
+
+{% block title %}Faqs page{% endblock %}
+
+{% block body %}
+{% for item in faqs %}
+    <div>{{ item.question }}</div>
+    <div>{{ item.answer }}</div>
+    <div>{{ item.created }}</div>
+{% endfor %}
+{% endblock %}

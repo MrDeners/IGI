@@ -1,0 +1,41 @@
+{% extends 'main/layout.html' %}
+
+{% block title %}Services page{% endblock %}
+
+{% block body %}
+{% if user.is_authenticated %}
+<form method="post">
+    {% csrf_token %}
+    <ul>
+        {% for set in services %}
+        <li> {{ set.name }}
+            {% for service in set.services.all %}
+            <label>
+                <input type="checkbox" name="services" value="{{ service.pk }}" {% if service.pk in selected_services %}checked{% endif %}>
+                {{ service.name }} - {{ service.price }}
+            </label>
+            {% endfor %}
+        </li>
+        {% endfor %}
+    </ul>
+
+    <div>
+        <label for="promo_code">Promo Code:</label>
+        <input type="text" name="promo_code" id="promo_code">
+    </div>
+
+    <button type="submit">GetIt</button>
+</form>
+
+{% else %}
+{% for item in services %}
+<div>{{ item.name }}</div>
+<div>{{ item.description }}</div>
+{% for service in item.services.all %}
+<div>{{ service.name }} - {{ service.price }}</div>
+<div>{{ service.description }}</div>
+<div>{{ service.price }}</div>
+{% endfor %}
+{% endfor %}
+{% endif %}
+{% endblock %}

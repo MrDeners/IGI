@@ -1,0 +1,10 @@
+{% extends 'main/layout.html' %}
+
+{% block title %}Faqs page{% endblock %}
+
+{% block body %}
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">Confirm</button>
+    </form>
+{% endblock %}

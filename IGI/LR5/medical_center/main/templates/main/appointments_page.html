@@ -1,0 +1,19 @@
+{% extends 'main/layout.html' %}
+
+{% block title %}Appointments page{% endblock %}
+
+{% block body %}
+{% for item in appointments %}
+    {% for service in item.services.all %}
+    <div>{{ service.name }}  {% for doctor in service.doctor.all %}  {{ doctor.name }} {% endfor %}</div>
+    <div>{{ service.description }}</div>
+    {% endfor %}
+    <div>{{ item.time }}</div>
+<div>
+    <a href="{% url 'update_appointment' item.pk %}">Update</a>
+    <a href="{% url 'delete_appointment' item.pk %}">Delete</a>
+</div>
+{% endfor %}
+<p>TimeZone: {{ request.user.timezone }}</p>
+<p>CurrentTime: {{ now_utc|date:"d/m/Y" }}</p>
+{% endblock %}

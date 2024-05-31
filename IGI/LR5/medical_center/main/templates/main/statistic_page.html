@@ -1,0 +1,27 @@
+{% extends 'main/layout.html' %}
+
+{% block title %}Statistic page{% endblock %}
+
+{% block body %}
+    <h1>Statistics</h1>
+    <h2>Total number of users: {{ users }}</h2>
+    <h2>Number of clients: {{ clientsAmount }}</h2>
+    <ul>
+        {% for client in clients %}
+            <li>{{ client.username }} (age: {{ client.age }})</li>
+        {% endfor %}
+    </ul>
+    <h2>Average age of clients: {{ clientsMiddleAge }}</h2>
+    <h2>Number of doctors: {{ doctorsAmount }}</h2>
+    <ul>
+        {% for doctor in doctors %}
+            <li>{{ doctor.username }} (age: {{ doctor.age }})</li>
+        {% endfor %}
+    </ul>
+    <h2>Average age of doctors: {{ doctorsMiddleAge }}</h2>
+    <h2>Number of departments: {{ departmentAmount }}</h2>
+    <h2>Planned revenue: {{ planned_profit }}</h2>
+
+    <a href="{% url 'diagram' %}">Client age Diagram</a>
+
+{% endblock %}

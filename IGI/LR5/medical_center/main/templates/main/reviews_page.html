@@ -1,0 +1,13 @@
+{% extends 'main/layout.html' %}
+
+{% block title %}Review page{% endblock %}
+
+{% block body %}
+{% for item in reviews %}
+    <div>{{ item.name }}</div>
+    <div>{{ item.grade }}</div>
+    <div>{{ item.text }}</div>
+    <div>{{ item.created }}</div>
+{% endfor %}
+<button type="submit"><a href="{% url 'create_review' %}">Add Review</a></button>
+{% endblock %}

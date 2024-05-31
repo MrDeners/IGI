@@ -1,0 +1,11 @@
+{% extends 'main/layout.html' %}
+
+{% block title %}Vacancy page{% endblock %}
+
+{% block body %}
+{% for item in vacancies %}
+    <div>{{ item.name }}</div>
+    <div>{{ item.description }}</div>
+    <div>{{ item.salary }}</div>
+{% endfor %}
+{% endblock %}

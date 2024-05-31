@@ -1,0 +1,10 @@
+{% extends 'main/layout.html' %}
+
+{% block title %}MainPage{% endblock %}
+
+{% block body %}
+    <div>{{news.name}}</div>
+    <div>{{news.text}}</div>
+    <img src="{{ news.photo.url }}" height = "200" width = "150">
+    <div>{{news.created_at}}</div>
+{% endblock %}

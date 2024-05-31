@@ -1,0 +1,13 @@
+{% extends 'main/layout.html' %}
+
+{% block title %}Clients page{% endblock %}
+
+{% block body %}
+<div>{{ doctor }}</div>
+    {% for item in doctor.client.all %}
+    <div>{{ item.name }}</div>
+        {% for diagnose in item.diagnoses.all %}
+            <div>{{ diagnose.name }} - {{ diagnose.medicines }}</div>
+        {% endfor %}
+    {% endfor %}
+{% endblock %}

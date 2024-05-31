@@ -1,0 +1,42 @@
+{% load static %}
+{% load tz %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{% static 'main/css/main.css' %}">
+    <title>{% block title %}{% endblock %}</title>
+</head>
+<body>
+<ul>
+    <li><a href="{% url 'home' %}">Main</a></li>
+    <li><a href="{% url 'about' %}">About</a></li>
+    <li><a href="{% url 'services' %}">Services</a></li>
+    <li><a href="{% url 'news' %}">News</a></li>
+    <li><a href="{% url 'faq' %}">FAQ</a></li>
+    <li><a href="{% url 'contacts' %}">Contacts</a></li>
+    <li><a href="{% url 'term_condition' %}">Term Condition</a></li>
+    <li><a href="{% url 'vacancies' %}">Vacancies</a></li>
+    <li><a href="{% url 'reviews' %}">Review</a></li>
+    <li><a href="{% url 'codes_and_coupons' %}">Codes and Coupons</a></li>
+    <li><a href="{% url 'api_requests' %}">API</a></li>
+    {% if user.is_authenticated %}
+    <li><a href="{% url 'appointments' %}">Appointments</a></li>
+    <li><a href="{% url 'sign_out' %}">SignOut</a></li>
+    {% else %}
+    <li><a href="{% url 'sign_in' %}">SignIn</a></li>
+    <li><a href="{% url 'sign_up' %}">SignUp</a></li>
+    {% endif %}
+    {% if user.is_superuser %}
+    <li><a href="{% url 'statistics' %}">Statistics</a></li>
+    {% endif %}
+    {% if user.role == 'doctor' %}
+    <li><a href="{% url 'clients' %}">Clients</a></li>
+    {% endif %}
+</ul>
+{% block body %}{% endblock %}
+</body>
+</html>

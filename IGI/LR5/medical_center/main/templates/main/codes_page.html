@@ -1,0 +1,10 @@
+{% extends 'main/layout.html' %}
+
+{% block title %}Codes page{% endblock %}
+
+{% block body %}
+    {% for item in codes %}
+    <div>{{ item.code }}</div>
+    <div>{{ item.status }}</div>
+{% endfor %}
+{% endblock %}
