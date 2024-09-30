@@ -1,0 +1,13 @@
+{% extends 'main/layout.html' %}
+
+{% block title %}Transaction{% endblock %}
+
+{% block body %}
+<h1>Your Order</h1>
+<p>Total Amount: ${{ total_amount }}</p>
+
+<form method="post">
+    {% csrf_token %}
+    <button type="submit" name="success">Success</button>
+</form>
+{% endblock %}

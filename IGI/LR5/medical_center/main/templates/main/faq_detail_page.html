@@ -1,0 +1,9 @@
+{% extends 'main/layout.html' %}
+
+{% block title %}Faqs page{% endblock %}
+
+{% block body %}
+    <div>{{ faq.question }}</div>
+    <div>{{ faq.answer }}</div>
+    <div>{{ faq.created }}</div>
+{% endblock %}

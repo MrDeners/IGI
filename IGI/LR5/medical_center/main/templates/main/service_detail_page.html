@@ -1,0 +1,17 @@
+{% extends 'main/layout.html' %}
+
+{% block title %}{{ service.name }}{% endblock %}
+
+{% block body %}
+<div>
+    <div>{{ service.name }} - {{ service.price }}</div>
+    <div>{{ service.description }}</div>
+    {% if user.is_authenticated %}
+    <div>
+        <button type="submit" aria-label="Add to cart">
+            <i class="fas fa-shopping-cart"></i>
+        </button>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}

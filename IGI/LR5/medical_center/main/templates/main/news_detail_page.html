@@ -1,0 +1,12 @@
+{% extends 'main/layout.html' %}
+
+{% block title %}{{ item.name }}{% endblock %}
+
+{% block body %}
+<div>
+    <div><cite>{{ item.name }}</cite></div>
+    <div>{{ item.text }}</div>
+    <div>{{ item.created_at }}</div>
+    <img src="{{ item.photo.url }}" height="200">
+</div>
+{% endblock %}

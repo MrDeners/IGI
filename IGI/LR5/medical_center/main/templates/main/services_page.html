@@ -1,41 +1,68 @@
 {% extends 'main/layout.html' %}
 
-{% block title %}Services page{% endblock %}
+{% block title %}Services Page{% endblock %}
 
 {% block body %}
+<h1>Services</h1>
+
 {% if user.is_authenticated %}
-<form method="post">
-    {% csrf_token %}
-    <ul>
-        {% for set in services %}
-        <li> {{ set.name }}
-            {% for service in set.services.all %}
-            <label>
-                <input type="checkbox" name="services" value="{{ service.pk }}" {% if service.pk in selected_services %}checked{% endif %}>
-                {{ service.name }} - {{ service.price }}
-            </label>
-            {% endfor %}
-        </li>
-        {% endfor %}
-    </ul>
-
-    <div>
-        <label for="promo_code">Promo Code:</label>
-        <input type="text" name="promo_code" id="promo_code">
-    </div>
-
-    <button type="submit">GetIt</button>
-</form>
+        {% csrf_token %}
+        <table>
+            <thead>
+                <tr>
+                    <th>Service Group</th>
+                    <th>Service Name</th>
+                    <th>Price</th>
+                    <th>Details</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for set in services %}
+                <tr>
+                    <td rowspan="{{ set.services.count }}" style="vertical-align: middle;">{{ set.name }}</td>
+                    {% for service in set.services.all %}
+                    {% if forloop.first %}
+                        <td>{{ service.name }}</td>
+                        <td>${{ service.price }}</td>
+                        <td>
+                            <a href="{% url 'service_detail_page' service.id %}">
+                                <button type="button">Learn more</button>
+                            </a>
+                        </td>
+                    {% else %}
+                        </tr>
+                        <tr>
+                            <td>{{ service.name }}</td>
+                            <td>${{ service.price }}</td>
+                            <td>
+                                <a href="{% url 'service_detail_page' service.id %}">
+                                    <button type="button">Learn more</button>
+                                </a>
+                            </td>
+                        </tr>
+                    {% endif %}
+                    {% endfor %}
+                {% endfor %}
+            </tbody>
+        </table>
 
 {% else %}
-{% for item in services %}
-<div>{{ item.name }}</div>
-<div>{{ item.description }}</div>
-{% for service in item.services.all %}
-<div>{{ service.name }} - {{ service.price }}</div>
-<div>{{ service.description }}</div>
-<div>{{ service.price }}</div>
-{% endfor %}
-{% endfor %}
+    <div>
+        {% for item in services %}
+        <div>
+            <h2>{{ item.name }}</h2>
+            <p>{{ item.description }}</p>
+            <ul>
+                {% for service in item.services.all %}
+                <li>{{ service.name }} - {{ service.price }}<br>
+                    {{ service.description }}<br>
+                    {{ service.price }}
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+        {% endfor %}
+    </div>
 {% endif %}
+
 {% endblock %}

@@ -3,8 +3,69 @@
 {% block title %}About page{% endblock %}
 
 {% block body %}
-    <div>{{about.name}}</div>
-    <div>{{about.description}}</div>
-    <div>{{about.created}}</div>
-    <img src="{{ about.photo.url }}" alt="{{ about.name }}">
+<div>{{about.name}}</div>
+<div>{{about.description}}</div>
+<div>
+    <p>
+        Watch <a href="#video-anchor">video review</a> about our hospital if you want to get additional information.
+    </p>
+</div>
+<div>{{about.created}}</div>
+<div><img src="{{ about.photo.url }}" alt="{{ about.name }}"></div>
+
+<div id="video-anchor">
+    <iframe title="review" width="560" height="315"
+            src="{{ about.videoReviewUrl }}"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+    </iframe>
+</div>
+<video autoplay controls muted width="560" height="315">
+    <source src="{{ about.videoReviewUrl }}" type="video/mp4">
+    <track src="subtitles_en.vtt" kind="subtitles" srclang="en" label="English">
+</video>
+<div><a href="{{ about.certificate }}">
+    Download Sertificate
+</a></div>
+<div class="responsive-iframe-container">
+    <iframe class="responsive-iframe-iframe"
+            src="{{ about.certificate }}">
+    </iframe>
+</div>
+<table>
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Created Date</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for item in history %}
+    <tr>
+        <td>{{ item.name }}</td>
+        <td>{{ item.description }}</td>
+        <td>{{ item.created }}</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+<br>
+<div>Our Props</div>
+<table>
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for item in props %}
+    <tr>
+        <td>{{ item.name }}</td>
+        <td>{{ item.description }}</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
 {% endblock %}

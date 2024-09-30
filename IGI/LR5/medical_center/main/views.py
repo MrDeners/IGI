@@ -11,12 +11,13 @@ from django.http import HttpResponseRedirect, JsonResponse, HttpResponse
 from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse_lazy
 from django.utils import timezone
-from django.views.generic import CreateView, TemplateView, FormView, DetailView, UpdateView, DeleteView
+from django.views.decorators.http import require_POST
+from django.views.generic import CreateView, TemplateView, FormView, DetailView, UpdateView, DeleteView, ListView
 import plotly.graph_objs as go
 
 from .forms import SignUpForm, SignInForm, ReviewForm
 from .models import News, Doctor, About, Faq, TermCondition, Vacancy, Review, Code, ServiceSet, Service, \
-    CustomUser, Department, ClientCard, Appointment
+    CustomUser, Department, ClientCard, Appointment, ShopCart, Partner, History, Prop
 from django.db import models
 import requests
 
@@ -25,8 +26,10 @@ import requests
 
 def index(request):
     news = News.objects.latest('created_at')
+    services = ServiceSet.objects.all()
+    partners = Partner.objects.all()
     return render(request,
-                  'main/main_page.html', {'news': news})
+                  'main/main_page.html', {'news': news, 'services': services, 'partners': partners})
 
 
 def signout(request):
@@ -54,7 +57,11 @@ class AboutView(TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         about = About.objects.first()
+        history = History.objects.all()
+        props = Prop.objects.all()
         context['about'] = about
+        context['history'] = history
+        context['props'] = props
         return context
 
 
@@ -278,17 +285,100 @@ class DoctorPageView(DetailView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['users'] = CustomUser.objects.count()
-        context['clientsAmount'] = CustomUser.objects.filter(role='client').count()
-        context['clients'] = CustomUser.objects.filter(role='client').all()
-        context['doctorsAmount'] = CustomUser.objects.filter(role='doctor').count()
-        context['doctors'] = CustomUser.objects.filter(role='doctor').all()
-        context['planned_profit'] = '12500'
-        context['clientsMiddleAge'] = CustomUser.objects.filter(role='client').aggregate(avg_age=Avg('age'))['avg_age']
-        context['doctorsMiddleAge'] = CustomUser.objects.filter(role='doctor').aggregate(avg_age=Avg('age'))['avg_age']
-        context['departmentAmount'] = Department.objects.count()
 
         return context
+
+
+class NewsDetailPageView(DetailView):
+    model = News
+    template_name = 'main/news_detail_page.html'
+    context_object_name = 'item'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+
+        return context
+
+
+class ServiceDetailPageView(DetailView):
+    model = Service
+    template_name = 'main/service_detail_page.html'
+    context_object_name = 'service'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+
+        return context
+
+
+class FAQDetailPageView(DetailView):
+    model = Faq
+    template_name = 'main/faq_detail_page.html'
+    context_object_name = 'faq'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+
+        return context
+
+
+class CartPageView(ListView):
+    model = ShopCart
+    template_name = 'main/cart_page.html'
+    context_object_name = 'items'
+
+    def get_queryset(self):
+        print(self.request.user.clientCard)
+        return ShopCart.objects.filter(customer=self.request.user.clientCard)
+
+
+@require_POST
+def update_cart(request):
+    item_id = request.POST.get('item_id')
+    action = request.POST.get('action')
+
+    shop_cart_item = get_object_or_404(ShopCart, id=item_id, customer=request.user.clientCard)
+
+    if action == 'increase':
+        shop_cart_item.amount += 1
+    elif action == 'decrease':
+        if shop_cart_item.amount > 1:
+            shop_cart_item.amount -= 1
+        else:
+            shop_cart_item.delete()
+            return redirect('cart')
+    elif action == 'delete':
+        shop_cart_item.delete()
+        return redirect('cart')
+
+    shop_cart_item.save()
+
+    return redirect('cart')
+
+
+@login_required
+def transaction_page(request):
+    cart_items = ShopCart.objects.filter(customer=request.user.clientCard)
+
+    total_amount = 0
+    for item in cart_items:
+        try:
+            price = float(item.service.price)
+        except ValueError:
+            price = 0
+
+        total_amount += price * item.amount
+
+    if request.method == 'POST':
+        if 'success' in request.POST:
+            cart_items.delete()
+            return redirect('success_page')
+
+    return render(request, 'main/transaction_page.html', {'total_amount': total_amount})
+
+
+def success_page(request):
+    return render(request, 'main/success_page.html')
 
 
 @login_required

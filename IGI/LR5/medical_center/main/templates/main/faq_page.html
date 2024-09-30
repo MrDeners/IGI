@@ -3,9 +3,22 @@
 {% block title %}Faqs page{% endblock %}
 
 {% block body %}
-{% for item in faqs %}
-    <div>{{ item.question }}</div>
-    <div>{{ item.answer }}</div>
-    <div>{{ item.created }}</div>
-{% endfor %}
+<table>
+    <thead>
+    <tr>
+        <th>Question</th>
+        <th>Created Date</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for item in faqs %}
+    <tr>
+        <td>
+            <a href="{% url 'faq_detail_page' item.id %}">{{ item.question }}</a>
+        </td>
+        <td>{{ item.created }}</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
 {% endblock %}

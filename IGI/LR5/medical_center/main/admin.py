@@ -1,6 +1,6 @@
 from django.contrib import admin
 from .models import Diagnosis, Doctor, ClientCard, CustomUser, Service, ServiceSet, Schedule, Department, News, \
-    About, Faq, TermCondition, Vacancy, Review, Code, Appointment
+    About, Faq, TermCondition, Vacancy, Review, Code, Appointment, ShopCart, Partner, History, Prop
 
 # Register your models here.
 
@@ -20,3 +20,7 @@ admin.site.register(News)
 admin.site.register(Review)
 admin.site.register(Code)
 admin.site.register(Appointment)
+admin.site.register(ShopCart)
+admin.site.register(Partner)
+admin.site.register(Prop)
+admin.site.register(History)

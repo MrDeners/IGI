@@ -3,8 +3,83 @@
 {% block title %}MainPage{% endblock %}
 
 {% block body %}
-    <div>{{news.name}}</div>
-    <div>{{news.text}}</div>
-    <img src="{{ news.photo.url }}" height = "200" width = "150">
-    <div>{{news.created_at}}</div>
+<header><strong><abbr title="Medical Center">MC</abbr></strong></header>
+<dl> <!--List of definitions-->
+    <dt>MC</dt>
+    <dd><dfn>Medical Center - the place, where you can get a medical helping</dfn></dd>
+</dl>
+<blockquote lang="en">
+    The doctor sees all the weakness of mankind;<br>
+    The lawyer all the wickedness,<br>
+    The theologian all the stupidity.
+    <cite>Albert Einstein</cite>
+</blockquote><br>
+<div>Our banners:</div>
+<div itemscope itemtype="http://schema.org/Product">
+    <figure itemprop="banner">
+        <img src="static/main/img/ads/ads_banner_first.jpg" height="200" alt="Banner 1">
+        <figcaption>Our first banner advertisement</figcaption>
+    </figure>
+    <figure itemprop="banner">
+        <img src="static/main/img/ads/ads_banner_second.jpg" height="200" alt="Banner 1">
+        <figcaption>Our second banner advertisement</figcaption>
+    </figure>
+</div>
+<br>
+<div>Last news on our web-site:</div>
+<div>{{news.name}}</div>
+<img src="{{ news.photo.url }}" height="200">
+<div>
+    <time datetime="{{news.created_at}}">{{news.created_at}}</time>
+</div>
+<div><a href="{% url 'news_detail_page' news.id %}">Learn more!</a></div>
+<br>
+<div>Our Services:</div>
+{% for item in services %}
+<div itemprop="name">{{ item.name }}</div>
+<div itemprop="description">{{ item.description }}</div>
+{% for service in item.services.all %}
+<div>{{ service.name }} - {{ service.price }} <a href="{% url 'service_detail_page' service.id %}">Learn more!</a></div>
+<div>{{ service.description }}</div>
+{% endfor %}
+{% endfor %}
+<br>
+<div>Our Partners:</div>
+{% for item in partners %}
+<div>{{ item.name }}
+    <a href="{{ item.url }}"><img src="{{ item.logo }}" height="80"></a>
+</div>
+{% endfor %}
+<br>
+
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Пример&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+    &lt;h1&gt;Привет, мир!&lt;/h1&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+<input type="text" id="name" name="name" required minlength="3" placeholder="Enter your name">
+<div>
+    <label>
+        <input type="checkbox" name="subscribe" value="yes" required>
+        I agree to receive notifications
+    </label>
+</div>
+<div>
+    <label for="options">Choose an option:</label>
+    <select id="options" name="options" required>
+        <option value="">Select an option</option>
+        <option value="option1">Option 1</option>
+        <option value="option2">Option 2</option>
+        <option value="option3">Option 3</option>
+    </select>
+</div>
 {% endblock %}

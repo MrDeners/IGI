@@ -38,8 +38,8 @@ class Doctor(models.Model):
 
 class ClientCard(models.Model):
     name = models.CharField(max_length=30)
-    diagnoses = models.ManyToManyField(Diagnosis)
-    doctors = models.ManyToManyField(Doctor, related_name='client')
+    diagnoses = models.ManyToManyField(Diagnosis, blank=True)
+    doctors = models.ManyToManyField(Doctor, related_name='client', blank=True)
     objects = models.Manager()
 
     def __str__(self):
@@ -64,6 +64,13 @@ class CustomUser(AbstractUser):
                                       default=18)
     dateOfRegistration = models.DateField('Date of Registration', default=now)
     clientCard = models.OneToOneField(ClientCard, on_delete=models.CASCADE, blank=True, null=True)
+
+    def save(self, *args, **kwargs):
+        if not self.clientCard:
+            client_card = ClientCard.objects.create(name=self.username)
+            self.clientCard = client_card
+
+        super().save(*args, **kwargs)
 
     def __str__(self):
         return self.username
@@ -164,11 +171,43 @@ class News(models.Model):
         verbose_name_plural = "News's"
 
 
-class About(models.Model):
+class History(models.Model):
     name = models.CharField('Name', max_length=100)
     description = models.TextField('Description', )
     created = models.DateTimeField('Creation data', default=now)
+
+    objects = models.Manager()
+
+    def __str__(self):
+        return self.name + ' ' + self.description
+
+    class Meta:
+        verbose_name = 'History'
+        verbose_name_plural = "Histories"
+
+
+class Prop(models.Model):
+    name = models.CharField('Name', max_length=100)
+    description = models.TextField('Description')
+    objects = models.Manager()
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name = 'Prop'
+        verbose_name_plural = "Props"
+
+
+class About(models.Model):
+    name = models.CharField('Name', max_length=100)
+    description = models.TextField('Description')
+    created = models.DateTimeField('Creation data', default=now)
+    videoReviewUrl = models.URLField(blank=True, null=True)
+    history = models.ManyToManyField(History, related_name='abouts', blank=True, null=True)
+    props = models.ManyToManyField(Prop, related_name='abouts', blank=True, null=True)
     photo = models.ImageField(upload_to='photos')
+    certificate = models.URLField(blank=True, null=True)
     objects = models.Manager()
 
     def __str__(self):
@@ -247,3 +286,31 @@ class Code(models.Model):
     class Meta:
         verbose_name = 'Code'
         verbose_name_plural = "Codes"
+
+
+class ShopCart(models.Model):
+    customer = models.ForeignKey(ClientCard, on_delete=models.CASCADE, related_name='cartItems')
+    service = models.ForeignKey(Service, on_delete=models.CASCADE, related_name='shopCarts', blank=True, null=True)
+    amount = models.IntegerField()
+    objects = models.Manager()
+
+    def __str__(self):
+        return f"{self.customer} - {self.service.name} ({self.amount})"
+
+    class Meta:
+        verbose_name = 'ShopCart'
+        verbose_name_plural = "ShopCarts"
+
+
+class Partner(models.Model):
+    name = models.CharField(max_length=50)
+    logo = models.CharField(max_length=1000)
+    url = models.CharField(max_length=1000, blank=True, null=True)
+    objects = models.Manager()
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name = 'Partner'
+        verbose_name_plural = 'Partners'
