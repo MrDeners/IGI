@@ -20,10 +20,12 @@
             allowfullscreen>
     </iframe>
 </div>
-<video autoplay controls muted width="560" height="315">
-    <source src="{{ about.videoReviewUrl }}" type="video/mp4">
-    <track src="subtitles_en.vtt" kind="subtitles" srclang="en" label="English">
-</video>
+<div class="responsive-video-container">
+    <video autoplay controls muted width="560" height="315">
+        <source src="{{ about.videoReviewUrl }}" type="video/mp4">
+        <track src="subtitles_en.vtt" kind="subtitles" srclang="en" label="English">
+    </video>
+</div>
 <div><a href="{{ about.certificate }}">
     Download Sertificate
 </a></div>
@@ -63,7 +65,7 @@
     {% for item in props %}
     <tr>
         <td>{{ item.name }}</td>
-        <td>{{ item.description }}</td>
+        <td class="contact">{{ item.description }}</td>
     </tr>
     {% endfor %}
     </tbody>

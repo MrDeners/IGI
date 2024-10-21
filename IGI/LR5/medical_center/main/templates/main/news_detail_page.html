@@ -3,10 +3,10 @@
 {% block title %}{{ item.name }}{% endblock %}
 
 {% block body %}
-<div>
-    <div><cite>{{ item.name }}</cite></div>
-    <div>{{ item.text }}</div>
-    <div>{{ item.created_at }}</div>
+<div class="news-detail-item">
+    <div class="news-detail-title"><cite>{{ item.name }}</cite></div>
+    <div class="news-detail-text">{{ item.text }}</div>
+    <div class="news-detail-date">{{ item.created_at }}</div>
     <img src="{{ item.photo.url }}" height="200">
 </div>
 {% endblock %}

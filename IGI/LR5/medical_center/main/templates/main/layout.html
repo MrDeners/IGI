@@ -17,12 +17,14 @@
     <link rel="icon" href="{% static 'main/img/logo.png' %}" type="image/png">
     <link rel="stylesheet" href="{% static 'main/css/main.css' %}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!--GoogleFonts-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
     <title>{% block title %}{% endblock %}</title>
 </head>
 <body>
 <nav role="navigation">
     <ul autocapitalize="on">
-        <li><a href="{% url 'home' %}"><img height="70" src="{% static 'main/img/logo.png' %}"></a></li>
+        <li><a id="logo" href="{% url 'home' %}"><img height="70" src="{% static 'main/img/logo.png' %}"></a></li>
         <li><a href="{% url 'home' %}">Main</a></li>
         <li><a href="{% url 'about' %}">About</a></li>
         <li><a href="{% url 'services' %}">Services</a></li>

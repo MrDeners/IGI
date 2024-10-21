@@ -3,7 +3,9 @@
 {% block title %}Faqs page{% endblock %}
 
 {% block body %}
-    <div>{{ faq.question }}</div>
-    <div>{{ faq.answer }}</div>
-    <div>{{ faq.created }}</div>
+<div class="faq-item">
+    <div class="faq-question">{{ faq.question }}</div>
+    <div class="faq-answer">{{ faq.answer }}</div>
+    <div class="faq-date">{{ faq.created }}</div>
+</div>
 {% endblock %}

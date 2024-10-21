@@ -26,13 +26,19 @@
     </figure>
 </div>
 <br>
-<div>Last news on our web-site:</div>
-<div>{{news.name}}</div>
-<img src="{{ news.photo.url }}" height="200">
-<div>
-    <time datetime="{{news.created_at}}">{{news.created_at}}</time>
+<div class="news-container">
+    <div class="news-title">Last news on our web-site:</div>
+    <div class="news-item">
+        <div class="news-name">{{ news.name }}</div>
+        <img class="news-image" src="{{ news.photo.url }}" height="200">
+        <div class="news-date">
+            <time datetime="{{ news.created_at }}">{{ news.created_at }}</time>
+        </div>
+        <div class="news-link">
+            <a href="{% url 'news_detail_page' news.id %}">Learn more!</a>
+        </div>
+    </div>
 </div>
-<div><a href="{% url 'news_detail_page' news.id %}">Learn more!</a></div>
 <br>
 <div>Our Services:</div>
 {% for item in services %}
@@ -44,13 +50,19 @@
 {% endfor %}
 {% endfor %}
 <br>
-<div>Our Partners:</div>
-{% for item in partners %}
-<div>{{ item.name }}
-    <a href="{{ item.url }}"><img src="{{ item.logo }}" height="80"></a>
+<div class="partners-section">
+    <div>Our Partners:</div>
+    <div class="partners-container">
+        {% for item in partners %}
+        <div class="partner-block">
+            <a href="{{ item.url }}">
+                <img src="{{ item.logo }}" alt="{{ item.name }}" class="partner-logo">
+            </a>
+            <div class="partner-name">{{ item.name }}</div>
+        </div>
+        {% endfor %}
+    </div>
 </div>
-{% endfor %}
-<br>
 
 <pre><code>&lt;!DOCTYPE html&gt;
 &lt;html lang="en"&gt;

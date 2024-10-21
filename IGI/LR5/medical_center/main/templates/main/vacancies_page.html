@@ -3,9 +3,14 @@
 {% block title %}Vacancy page{% endblock %}
 
 {% block body %}
-{% for item in vacancies %}
-    <div>{{ item.name }}</div>
-    <div>{{ item.description }}</div>
-    <div>{{ item.salary }}</div>
-{% endfor %}
+<div class="vacancies-container">
+    {% for item in vacancies %}
+    <div class="vacancy-card">
+        <div class="vacancy-name">{{ item.name }}</div>
+        <div class="vacancy-description">{{ item.description }}</div>
+        <div class="vacancy-salary">{{ item.salary }}</div>
+    </div>
+    {% endfor %}
+    <div class="clearfix"></div>
+</div>
 {% endblock %}

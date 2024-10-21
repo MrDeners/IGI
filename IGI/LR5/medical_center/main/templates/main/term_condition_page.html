@@ -3,5 +3,8 @@
 {% block title %}About page{% endblock %}
 
 {% block body %}
-    <div>{{term_condition.text}}</div>
+<div class="terms-container">
+    <h2>Terms and Conditions</h2>
+    <div class="terms-text">{{ term_condition.text }}</div>
+</div>
 {% endblock %}

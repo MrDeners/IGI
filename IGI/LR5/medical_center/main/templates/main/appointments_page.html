@@ -3,17 +3,38 @@
 {% block title %}Appointments page{% endblock %}
 
 {% block body %}
-{% for item in appointments %}
+<h2 class="table-header">Записи на приём</h2>
+<table class="styled-table">
+    <thead>
+    <tr>
+        <th>Услуга</th>
+        <th>Доктор</th>
+        <th>Описание</th>
+        <th>Время</th>
+        <th>Действия</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for item in appointments %}
     {% for service in item.services.all %}
-    <div>{{ service.name }}  {% for doctor in service.doctor.all %}  {{ doctor.name }} {% endfor %}</div>
-    <div>{{ service.description }}</div>
+    <tr>
+        <td>{{ service.name }}</td>
+        <td>
+            {% for doctor in service.doctor.all %}
+            {{ doctor.name }} {% if not forloop.last %}, {% endif %}
+            {% endfor %}
+        </td>
+        <td>{{ service.description }}</td>
+        <td>{{ item.time }}</td>
+        <td>
+            <a href="{% url 'update_appointment' item.pk %}">Update</a>
+            <a href="{% url 'delete_appointment' item.pk %}">Delete</a>
+        </td>
+    </tr>
     {% endfor %}
-    <div>{{ item.time }}</div>
-<div>
-    <a href="{% url 'update_appointment' item.pk %}">Update</a>
-    <a href="{% url 'delete_appointment' item.pk %}">Delete</a>
-</div>
-{% endfor %}
+    {% endfor %}
+    </tbody>
+</table>
 <p>TimeZone: {{ request.user.timezone }}</p>
 <p>CurrentTime: {{ now_utc|date:"d/m/Y" }}</p>
 {% endblock %}

@@ -4,9 +4,12 @@
 
 {% block body %}
 {% for item in news %}
-<div><cite>{{ item.name }}</cite></div>
-<div>{{ item.created_at }}</div>
-<img src="{{ item.photo.url }}" height="200">
-<div><a href="{% url 'news_detail_page' item.id %}">Learn more!</a></div>
+<div class="news-list-item">
+    <cite>{{ item.name }}</cite>
+    <div class="news-list-item-text">{{ item.text }}</div>
+    <div>{{ item.created_at }}</div>
+    <img src="{{ item.photo.url }}" height="200">
+    <div><a href="{% url 'news_detail_page' item.id %}">Learn more!</a></div>
+</div>
 {% endfor %}
 {% endblock %}

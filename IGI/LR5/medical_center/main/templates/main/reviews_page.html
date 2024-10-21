@@ -3,11 +3,17 @@
 {% block title %}Review page{% endblock %}
 
 {% block body %}
-{% for item in reviews %}
-    <div>{{ item.name }}</div>
-    <div>{{ item.grade }}</div>
-    <div>{{ item.text }}</div>
-    <div>{{ item.created }}</div>
-{% endfor %}
-<button type="submit"><a href="{% url 'create_review' %}">Add Review</a></button>
+<div class="reviews-container">
+    {% for item in reviews %}
+    <div class="review-card">
+        <div class="review-name">{{ item.name }}</div>
+        <div class="review-grade">{{ item.grade }}</div>
+        <div class="review-text">{{ item.text }}</div>
+        <div class="review-date">{{ item.created }}</div>
+    </div>
+    {% endfor %}
+    <button type="submit" class="add-review-button">
+        <a href="{% url 'create_review' %}">Add Review</a>
+    </button>
+</div>
 {% endblock %}

@@ -4,10 +4,16 @@
 
 {% block body %}
 {% for item in contacts %}
-    <div><a href="{% url 'doctor_page' item.id %}">{{ item.name }}</a></div>
-    <img src="{{ item.photo.url }}" height = "200" width = "150">
-    <div>{{ item.sphere }}</div>
-    <div>{{ item.education }}</div>
-    <div>{{ item.careerStartTime }}</div>
+<div class="contact-card">
+    <div class="contact-info">
+        <div class="contact-name">
+            <a href="{% url 'doctor_page' item.id %}">{{ item.name }}</a>
+        </div>
+        <div class="contact-sphere">{{ item.sphere }}</div>
+        <div class="contact-education">{{ item.education }}</div>
+        <div class="contact-career-start">{{ item.careerStartTime }}</div>
+    </div>
+    <img src="{{ item.photo.url }}" height="200" width="150" class="contact-photo">
+</div>
 {% endfor %}
 {% endblock %}
