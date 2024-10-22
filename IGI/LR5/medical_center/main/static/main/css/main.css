@@ -175,7 +175,7 @@ body {
     font-family: 'Roboto', 'Arial', sans-serif;
 }
 
-/* Отдельный шрифт для заголовков (serif) */
+/* Отдельный шрифт для заголовков (serif - ) */
 h1, h2, h3 {
     font-family: 'Georgia', serif;
 }
@@ -1029,8 +1029,6 @@ a:hover {
     }
 }
 
-
-
 .animation-container {
     position: relative;
     width: 400px;
@@ -1047,6 +1045,19 @@ a:hover {
     border: 2px solid #999;
     border-radius: 10px;
     transform: translateX(-50%);
+    overflow: hidden;
+}
+
+.roof {
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 60px solid transparent;
+    border-right: 60px solid transparent;
+    border-bottom: 30px solid #999;
 }
 
 .person {
@@ -1057,7 +1068,29 @@ a:hover {
     height: 40px;
     background-color: #4a90e2;
     border-radius: 10px;
-    animation: walk-in 4s forwards, walk-out 4s 4s forwards;
+    animation: walk-in 4s forwards, walk-out 4s 4s forwards, straighten-up 0.5s 8s forwards;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.head {
+    width: 12px;
+    height: 12px;
+    background-color: #f1c40f;
+    border-radius: 50%;
+    position: absolute;
+    top: -14px;
+}
+
+.stick {
+    width: 2px;
+    height: 20px;
+    background-color: #8b4513;
+    position: absolute;
+    bottom: 0;
+    right: -4px;
+    animation: disappear-stick 0.5s 8s forwards;
 }
 
 .company-name {
@@ -1092,6 +1125,24 @@ a:hover {
     }
     100% {
         transform: translateX(150px) translateY(0) rotate(0);
+    }
+}
+
+@keyframes disappear-stick {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes straighten-up {
+    0% {
+        transform: rotate(-10deg);
+    }
+    100% {
+        transform: rotate(0);
     }
 }
 

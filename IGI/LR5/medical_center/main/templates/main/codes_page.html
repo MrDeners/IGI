@@ -17,9 +17,34 @@
     <div class="circle circle3"></div>
     <div class="circle circle4"></div>
 </div>
-<div class="animation-container">
-    <div class="building"></div>
-    <div class="person" id="person"></div>
-    <div class="company-name">RedHeart</div>
-</div>
+<svg width="400" height="300" xmlns="http://www.w3.org/2000/svg">
+    <g id="house" transform="translate(200, 40)">
+        <rect x="22.5" y="119.5" width="133" height="138" fill="white" stroke="black"/>
+        <rect x="35.5" y="129.5" width="37" height="51" fill="#C1EC34" stroke="black"/>
+        <rect x="70.5" y="206.5" width="37" height="51" fill="white" stroke="black"/>
+        <rect x="104.5" y="129.5" width="37" height="51" fill="#C1EC34" stroke="black"/>
+        <path d="M89 0L166.076 120.75H11.9237L89 0Z" fill="#D9D9D9"/>
+    </g>
+
+    <g id="person" transform="translate(20, 150)" clip-path="url(#houseMask)">
+        <circle cx="40.5" cy="36.5" r="36" fill="white" stroke="black"/>
+        <circle cx="23" cy="26.5" r="5.5" fill="white" stroke="black"/>
+        <circle cx="54" cy="26.5" r="5.5" fill="white" stroke="black"/>
+        <path d="M46.9792 48.0767C47.0529 48.826 46.9302 49.5793 46.619 50.2899C46.3077 51.0005 45.8143 51.6535 45.1694 52.2085C44.5244 52.7635 43.7415 53.2088 42.869 53.5168C41.9965 53.8248 41.053 53.9891 40.0965 53.9995C39.1401 54.0098 38.1911 53.8661 37.3081 53.5771C36.4252 53.2881 35.6269 52.8599 34.9628 52.3191C34.2986 51.7783 33.7825 51.1362 33.4464 50.4326C33.1103 49.729 32.9613 48.9787 33.0086 48.2281L40 48.5L46.9792 48.0767Z" fill="white" stroke="black" stroke-width="2"/>
+        <path d="M0.337168 108.514C0.292886 101.554 1.29658 94.6559 3.29094 88.2128C5.28531 81.7698 8.23128 75.9082 11.9607 70.9629C15.6901 66.0176 20.1298 62.0853 25.0265 59.3906C29.9231 56.6959 35.1807 55.2915 40.4992 55.2577C45.8176 55.2238 51.0927 56.5612 56.0232 59.1934C60.9537 61.8256 65.4432 65.701 69.2352 70.5985C73.0272 75.496 76.0475 81.3196 78.1237 87.7367C80.1999 94.1539 81.2913 101.039 81.3355 107.999L40.8363 108.257L0.337168 108.514Z" fill="white"/>
+        <line id="stick" x1="65.1838" y1="77.798" x2="111.874" y2="102.899" stroke="#FF0000" stroke-width="5">
+            <animate attributeName="opacity" from="1" to="0" begin="4s" dur="0.5s" fill="freeze"/>
+        </line>
+    </g>
+
+    <animateTransform xlink:href="#person" attributeName="transform" type="translate"
+                      values="20,180; 150,180; 150,180; 250,190; 20,190;"
+                      keyTimes="0; 0.2; 0.4; 0.6; 1"
+                      dur="6s" repeatCount="1" fill="freeze"/>
+
+    <animateTransform xlink:href="#person" attributeName="transform" type="rotate"
+                      values="15; 15; 0; 0"
+                      keyTimes="0; 0.2; 0.6; 1"
+                      dur="6s" additive="sum" repeatCount="1" fill="freeze"/>
+</svg>
 {% endblock %}
